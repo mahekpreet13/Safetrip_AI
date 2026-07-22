@@ -44,3 +44,42 @@ The platform combines:
 ## Current Skeleton
 
 This repository currently contains an empty folder structure with only this main `README.md`.
+
+## Today’s Tasks
+
+### Task 1: Project Setup
+
+- Create FastAPI project
+- Set up folder structure
+- Add environment configuration
+- Connect PostgreSQL
+- Prepare PostGIS support for later
+- Test API endpoint
+
+Deliverable:
+
+- `GET /` returns `API Running`
+
+### Task 2: Database Design
+
+Create tables:
+
+- `Crime`
+- `PoliceStation`
+- `Location`
+
+Sample crime fields:
+
+- `crime_id`
+- `crime_type`
+- `latitude`
+- `longitude`
+- `date`
+- `time`
+- `severity`
+
+Deliverable:
+
+- Database populated with sample crime data
+- Sample CSV located at `data/sample_crime.csv`
+- SQL seed file located at `database/seed.sql`

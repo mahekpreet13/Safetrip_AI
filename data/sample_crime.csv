@@ -1,0 +1,6 @@
+crime_id,crime_type,date,time,severity,description,location_id
+1,Theft,2026-07-01,18:30:00,Medium,Reported theft near a transit area.,1
+2,Assault,2026-07-02,22:10:00,High,Late-night assault incident.,2
+3,Robbery,2026-07-03,20:45:00,High,Robbery reported near a commercial road.,3
+4,Pickpocketing,2026-07-04,14:15:00,Low,Minor pickpocketing incident.,2
+5,Vandalism,2026-07-05,23:05:00,Medium,Property vandalism reported.,1

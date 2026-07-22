@@ -1,0 +1,3 @@
+station_id,name,phone,email,location_id
+1,Central Police,+91-1111111111,central.police@example.com,3
+2,South Police,+91-2222222222,south.police@example.com,2
