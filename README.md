@@ -83,3 +83,30 @@ Deliverable:
 - Database populated with sample crime data
 - Sample CSV located at `data/sample_crime.csv`
 - SQL seed file located at `database/seed.sql`
+
+
+for database:
+Step 1: Open PostgreSQL
+psql -d safetrip_ai
+Step 2: List all tables
+\dt
+
+Expected:
+
+crime
+location
+Step 3: Check data in Location table
+SELECT * FROM location;
+Step 4: Check data in Crime table
+SELECT * FROM crime;
+Step 5: Count records
+SELECT COUNT(*) FROM location;
+SELECT COUNT(*) FROM crime;
+Step 6: Check table structure
+\d location
+\d crime
+Step 7: Exit PostgreSQL
+\q
+
+
+for backend:python -m uvicorn app.main:app --reload
