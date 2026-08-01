@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 SEVERITY_WEIGHTS = {"Low": 1, "Medium": 2, "High": 3}
 
 
@@ -45,3 +46,4 @@ def peak_hour(crimes: list) -> int | None:
     if not crimes:
         return None
     return Counter(c.time.hour for c in crimes).most_common(1)[0][0]
+

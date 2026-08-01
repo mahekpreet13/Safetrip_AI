@@ -6,6 +6,8 @@ from app.routes.db_health import router as db_health_router
 from app.routes.health import router as health_router
 from app.routes.search import router as search_router
 from app.core.database import Base, engine
+from app.routes.route import router as route_router
+from app.routes.police_station import router as police_station_router
 
 # Import models so SQLAlchemy knows about them
 from app.models.location import Location
@@ -33,3 +35,5 @@ app.include_router(health_router)
 app.include_router(db_health_router)
 app.include_router(search_router)
 app.include_router(crime_router)
+app.include_router(route_router)
+app.include_router(police_station_router)
