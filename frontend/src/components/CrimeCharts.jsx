@@ -35,7 +35,7 @@ const commonOptions = {
 function ChartCard({ title, children }) {
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:shadow-md transition-shadow">
-      <h3 className="text-sm font-semibold text-gray-700 mb-4">{title}</h3>
+      <h3 className="text-sm font-semibold text-gray-700 mb-4 font-display">{title}</h3>
       <div className="h-56">{children}</div>
     </div>
   )
@@ -62,7 +62,7 @@ export default function CrimeCharts({ trends }) {
       {
         label: 'Crimes',
         data: Object.values(trends.by_month || {}),
-        backgroundColor: '#10b981',
+        backgroundColor: '#3E8E6E',
         borderRadius: 6,
       },
     ],
@@ -74,12 +74,12 @@ export default function CrimeCharts({ trends }) {
       {
         label: 'Crimes',
         data: hourEntries.map(([, count]) => count),
-        borderColor: '#ef4444',
-        backgroundColor: 'rgba(239, 68, 68, 0.12)',
+        borderColor: '#B24B3C',
+        backgroundColor: 'rgba(178, 75, 60, 0.1)',
         tension: 0.35,
         fill: true,
         pointRadius: 2,
-        pointBackgroundColor: '#ef4444',
+        pointBackgroundColor: '#B24B3C',
       },
     ],
   }
@@ -92,7 +92,7 @@ export default function CrimeCharts({ trends }) {
       {
         label: 'Crimes',
         data: categoryEntries.map(([, count]) => count),
-        backgroundColor: '#6366f1',
+        backgroundColor: '#E8A33D',
         borderRadius: 6,
       },
     ],

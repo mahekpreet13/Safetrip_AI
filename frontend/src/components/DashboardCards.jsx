@@ -1,20 +1,20 @@
 import { ShieldAlert, ListOrdered, Clock, AlertCircle } from 'lucide-react'
 
 const riskStyles = {
-  Low: { bg: 'bg-green-50', text: 'text-green-600', ring: 'ring-green-100' },
-  Medium: { bg: 'bg-yellow-50', text: 'text-yellow-600', ring: 'ring-yellow-100' },
-  High: { bg: 'bg-red-50', text: 'text-red-600', ring: 'ring-red-100' },
+  Low: { bg: 'bg-safe/10', text: 'text-safe' },
+  Medium: { bg: 'bg-caution/10', text: 'text-caution' },
+  High: { bg: 'bg-alert/10', text: 'text-alert' },
 }
 
-function Card({ icon, label, value, accentBg, accentText, ring }) {
+function Card({ icon, label, value, accentBg, accentText }) {
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 flex items-center gap-4 hover:shadow-md transition-shadow">
-      <div className={`p-3 rounded-xl ring-4 ${accentBg} ${accentText} ${ring || 'ring-blue-50'}`}>
+      <div className={`p-3 rounded-xl ${accentBg} ${accentText}`}>
         {icon}
       </div>
       <div>
-        <p className="text-xs text-gray-400 uppercase tracking-wide font-medium">{label}</p>
-        <p className="text-lg font-bold text-gray-800 mt-0.5">{value}</p>
+        <p className="text-[11px] text-gray-400 font-mono uppercase tracking-widest">{label}</p>
+        <p className="text-lg font-display font-medium text-gray-800 mt-0.5">{value}</p>
       </div>
     </div>
   )
@@ -44,31 +44,27 @@ export default function DashboardCards({ data }) {
         value={`${data.risk_score} (${data.risk_level})`}
         accentBg={risk.bg}
         accentText={risk.text}
-        ring={risk.ring}
       />
       <Card
         icon={<ListOrdered size={20} />}
         label="Crime Count"
         value={data.crime_count}
-        accentBg="bg-blue-50"
-        accentText="text-blue-600"
-        ring="ring-blue-50"
+        accentBg="bg-ink/5"
+        accentText="text-ink"
       />
       <Card
         icon={<Clock size={20} />}
         label="Peak Time"
         value={peakHourDisplay}
-        accentBg="bg-purple-50"
-        accentText="text-purple-600"
-        ring="ring-purple-50"
+        accentBg="bg-signal/10"
+        accentText="text-signal-dark"
       />
       <Card
         icon={<AlertCircle size={20} />}
         label="Most Common Crime"
         value={data.most_common_crime || 'N/A'}
-        accentBg="bg-orange-50"
-        accentText="text-orange-600"
-        ring="ring-orange-50"
+        accentBg="bg-ink/5"
+        accentText="text-ink"
       />
     </div>
   )

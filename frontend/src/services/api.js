@@ -30,3 +30,18 @@ export async function fetchAiSummary(city) {
   const response = await fetch(`${API_BASE_URL}/ai-summary?city=${encodeURIComponent(city)}`)
   return handleResponse(response)
 }
+export async function fetchSafeRoute(start, destination) {
+  const response = await fetch(`${API_BASE_URL}/route`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ start, destination }),
+  })
+  return handleResponse(response)
+}
+
+export async function fetchPoliceStations(latitude, longitude) {
+  const response = await fetch(
+    `${API_BASE_URL}/police-stations?latitude=${latitude}&longitude=${longitude}`
+  )
+  return handleResponse(response)
+}
