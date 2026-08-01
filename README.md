@@ -121,7 +121,7 @@ python -m uvicorn app.main:app --reload
 ```
 Check `http://127.0.0.1:8000/docs` to confirm it's running.
 
-### 5. Run the frontend (every time)
+### Run the frontend (every time)
 
 **Terminal 2 (separate window, leave Terminal 1 running):**
 ```powershell
