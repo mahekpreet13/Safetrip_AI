@@ -110,3 +110,25 @@ Step 7: Exit PostgreSQL
 
 
 for backend:python -m uvicorn app.main:app --reload
+
+### Run the backend (every time)
+
+**Terminal 1:**
+```powershell
+cd backend
+venv\Scripts\activate
+python -m uvicorn app.main:app --reload
+```
+Check `http://127.0.0.1:8000/docs` to confirm it's running.
+
+### 5. Run the frontend (every time)
+
+**Terminal 2 (separate window, leave Terminal 1 running):**
+```powershell
+cd frontend
+npm install          # first time only
+npm run dev
+```
+Open `http://localhost:5173`
+
+⚠️ Both terminals must stay running at the same time — closing the backend terminal while using the frontend breaks every API call with "Failed to fetch."
