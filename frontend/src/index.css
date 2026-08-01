@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ink: #0E1A2B;
+  --color-ink-light: #14263D;
+  --color-paper: #F7F5EF;
+  --color-signal: #E8A33D;
+  --color-signal-dark: #C97B22;
+  --color-safe: #3E8E6E;
+  --color-caution: #C97B3D;
+  --color-alert: #B24B3C;
+
+  --font-display: "Fraunces", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+body {
+  background-color: #F7F5EF;
+}
+
+.topo-texture {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.06' stroke-width='1'%3E%3Ccircle cx='100' cy='100' r='30'/%3E%3Ccircle cx='100' cy='100' r='55'/%3E%3Ccircle cx='100' cy='100' r='80'/%3E%3Ccircle cx='100' cy='100' r='105'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}

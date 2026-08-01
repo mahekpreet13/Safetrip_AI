@@ -4,7 +4,9 @@ SEVERITY_WEIGHTS = {"Low": 1, "Medium": 2, "High": 3}
 
 
 def calculate_risk_score(crimes: list) -> dict:
-    """Simple, transparent risk scoring: average severity weight + volume bump, capped at 100."""
+    """Risk scoring based on both severity and volume, calibrated so that
+    a handful of crimes doesn't automatically read as 'High' risk the same
+    way a large real dataset would."""
     if not crimes:
         return {"risk_score": 0.0, "risk_level": "Low", "crime_count": 0}
 
@@ -12,8 +14,16 @@ def calculate_risk_score(crimes: list) -> dict:
     crime_count = len(crimes)
     avg_weight = total_weight / crime_count
 
-    raw_score = (avg_weight / 3) * 100 + (crime_count * 2)
-    score = round(min(raw_score, 100), 2)
+    # Severity contributes up to 60 points, volume contributes the rest —
+    # volume is scaled with a soft cap so very large datasets (e.g. Chicago's
+    # 500 records) don't all pin at 100, and very small datasets (e.g. 2-5
+    # sample records) don't spike to "High" purely from having any
+    # medium/high-severity crime at all.
+    severity_component = (avg_weight / 3) * 60
+    volume_component = min(crime_count, 50) / 50 * 40
+
+    score = round(severity_component + volume_component, 2)
+    score = min(score, 100.0)
 
     if score < 34:
         level = "Low"
